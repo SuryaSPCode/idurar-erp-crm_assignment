@@ -27,7 +27,15 @@ const update = async (req, res) => {
 
   const { credit } = previousInvoice;
 
-  const { items = [], taxRate = 0, discount = 0 } = req.body;
+  const { items = [
+    {
+      notes: req.body.notes,
+      itemName: req.body.itemName,
+      description: req.body.description,
+      quantity: req.body.quantity,
+      price: req.body.price
+    }
+  ], taxRate = 0, discount = 0 } = req.body;
 
   if (items.length === 0) {
     return res.status(400).json({
