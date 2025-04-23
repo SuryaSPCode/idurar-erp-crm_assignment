@@ -6,6 +6,7 @@ import { useMoney, useDate } from '@/settings';
 import calculate from '@/utils/calculate';
 
 export default function ItemRow({ field, remove, current = null }) {
+
   const [totalState, setTotal] = useState(undefined);
   const [price, setPrice] = useState(0);
   const [quantity, setQuantity] = useState(0);
@@ -108,6 +109,11 @@ export default function ItemRow({ field, remove, current = null }) {
               }
             />
           </Form.Item>
+        </Form.Item>
+      </Col>
+      <Col className="gutter-row" span={7}>
+        <Form.Item name={[field.name, 'notes']}>
+          <Input placeholder="Enter Notes" />
         </Form.Item>
       </Col>
 
