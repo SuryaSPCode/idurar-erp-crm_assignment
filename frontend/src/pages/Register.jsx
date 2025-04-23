@@ -6,11 +6,10 @@ import { useNavigate } from 'react-router-dom';
 import useLanguage from '@/locale/useLanguage';
 
 import { Form, Button } from 'antd';
-import { Link } from 'react-router-dom';
 
-import { login } from '@/redux/auth/actions';
+import { register } from '@/redux/auth/actions';
 import { selectAuth } from '@/redux/auth/selectors';
-import LoginForm from '@/forms/LoginForm';
+import RegisterForm from '@/forms/RegisterForm';
 import Loading from '@/components/Loading';
 import AuthModule from '@/modules/AuthModule';
 
@@ -22,7 +21,7 @@ const LoginPage = () => {
 
   const dispatch = useDispatch();
   const onFinish = (values) => {
-    dispatch(login({ loginData: values }));
+    dispatch(register({ registerData: values }));
   };
 
   useEffect(() => {
@@ -34,35 +33,31 @@ const LoginPage = () => {
       <Loading isLoading={isLoading}>
         <Form
           layout="vertical"
-          name="normal_login"
-          className="login-form"
+          name="normal_register"
+          className="register-form"
           initialValues={{
             remember: true,
           }}
           onFinish={onFinish}
         >
-          <LoginForm />
+          <RegisterForm />
           <Form.Item>
             <Button
               type="primary"
               htmlType="submit"
-              className="login-form-button"
+              className="register-form-button"
               loading={isLoading}
               size="large"
             >
-              {translate('Log in')}
+              {translate('Register')}
             </Button>
           </Form.Item>
-          <Form.Item style={{ marginBottom: 0 }}>
-          <span>{translate("Don't have an account?")} </span>
-          <Link to="/register">{translate('Register Here')}</Link>
-        </Form.Item>
         </Form>
       </Loading>
     );
   };
 
-  return <AuthModule authContent={<FormContainer />} AUTH_TITLE="Sign in" />;
+  return <AuthModule authContent={<FormContainer />} AUTH_TITLE="Register" />;
 };
 
 export default LoginPage;
