@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - '8085:8085'
+    environment:
+      - PORT=8085
+      - MONGO_URL=mongodb+srv://penteai:5C6ZRGyocGY5eMOp@clusterpenteai.3y3ff7d.mongodb.net/?retryWrites=true&w=majority&appName=ClusterPenteAi
+    depends_on:
+      - frontend
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    environment:
+      - VITE_BACKEND_SERVER=http://localhost:8085/
+      - VITE_DEV_REMOTE=remote
+    stdin_open: true
+    tty: true
