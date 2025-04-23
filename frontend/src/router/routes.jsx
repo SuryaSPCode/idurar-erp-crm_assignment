@@ -28,6 +28,7 @@ const Taxes = lazy(() => import('@/pages/Taxes'));
 const Profile = lazy(() => import('@/pages/Profile'));
 
 const About = lazy(() => import('@/pages/About'));
+const QueryManager = lazy(() => import('../pages/Query/index'));
 
 let routes = {
   expense: [],
@@ -124,8 +125,8 @@ let routes = {
       element: <Profile />,
     },
     {
-      path: '*',
-      element: <NotFound />,
+      path: '/query',
+      element: <QueryManager />,
     },
   ],
 };

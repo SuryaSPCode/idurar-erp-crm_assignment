@@ -40,15 +40,16 @@ export default function ErpCrmApp() {
   // const appSettings = useSelector(selectAppSettings);
 
   const { isSuccess: settingIsloaded } = useSelector(selectSettings);
+  const Isloaded = true
 
   // useEffect(() => {
   //   const { loadDefaultLang } = storePersist.get('firstVisit');
   //   if (appSettings.idurar_app_language && !loadDefaultLang) {
   //     window.localStorage.setItem('firstVisit', JSON.stringify({ loadDefaultLang: true }));
   //   }
-  // }, [appSettings]);
+  // }, [appSettings]);  
 
-  if (settingIsloaded)
+  if (Isloaded)
     return (
       <Layout hasSider>
         <Navigation />
