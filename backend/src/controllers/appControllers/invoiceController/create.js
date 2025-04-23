@@ -19,7 +19,13 @@ const create = async (req, res) => {
     });
   }
 
-  const { items = [], taxRate = 0, discount = 0 } = value;
+  const { items = [{
+    notes: req.body.notes,
+    itemName: req.body.itemName,
+    description: req.body.description,
+    quantity: req.body.quantity,
+    price: req.body.price
+  }], taxRate = 0, discount = 0 } = value;
 
   // default
   let subTotal = 0;

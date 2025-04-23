@@ -299,6 +299,7 @@ html
               th #{translate('Quantity')}
               th #{translate('PRICE')}
               th #{translate('TOTAL')}
+              th #{translate('NOTES')}
           tbody
             each item in model.items
               tr
@@ -307,6 +308,7 @@ html
                 td.qty #{item.quantity}  
                 td.unit  #{moneyFormatter({amount:item.price})}
                 td.total #{moneyFormatter({amount:item.total})}
+                td.notes #{item.notes}
             tr
               td(colspan='3') #{translate('SUB TOTAL')}
               td.total #{moneyFormatter({amount:model.subTotal})}

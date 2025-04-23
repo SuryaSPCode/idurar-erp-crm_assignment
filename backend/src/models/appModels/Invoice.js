@@ -1,3 +1,4 @@
+const { type } = require('@/locale/translation/en_us');
 const mongoose = require('mongoose');
 
 const invoiceSchema = new mongoose.Schema({
@@ -27,6 +28,9 @@ const invoiceSchema = new mongoose.Schema({
   expiredDate: {
     type: Date,
     required: true,
+  },
+  geminiSummary: {
+    type: String,
   },
   client: {
     type: mongoose.Schema.ObjectId,
@@ -70,6 +74,9 @@ const invoiceSchema = new mongoose.Schema({
       price: {
         type: Number,
         required: true,
+      },
+      notes: {
+        type: String,
       },
       // discount: {
       //   type: Number,
